@@ -84,7 +84,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
 
 // ── OPEN MODAL ──
 function openModal(id) {
-    const movie = testMovies.find(m => m.id === id);
+    const movie = testMovies.find(m => m.id == id);
     if (!movie) return;
 
     document.getElementById('modalTitle').textContent = movie.title;

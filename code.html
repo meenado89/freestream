@@ -1250,7 +1250,7 @@
     function renderCards(movies, containerId) {
       const grid = document.getElementById(containerId);
       grid.innerHTML = movies.map(m => `
-    <div class="movie-card" data-genre="${m.genre}" onclick="openModal('${m.id}')">
+    <div class="movie-card" data-genre="${m.genre}" onclick="openModal(this.dataset.id)" data-id="${m.id}">
       <div class="movie-thumb">
         <span>${m.emoji}</span>
         <div class="movie-free-badge">FREE</div>
