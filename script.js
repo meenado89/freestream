@@ -33,7 +33,7 @@ function renderMovies(movies) {
     <div class="movie-thumb">
       <!-- Poster Image -->
       <img 
-        src="${m.poster_url || 'https://via.placeholder.com/300x450'}"
+        src="https://archive.org/services/img/${m.embed_url.split('/embed/')[1]}"
         style="width:100%; height:100%; object-fit:cover;"
       >
 
