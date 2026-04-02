@@ -73,13 +73,17 @@ function filterGenre(el, genre) {
 }
 
 // ── SEARCH ──
-document.getElementById('searchInput').addEventListener('input', function () {
-    const q = this.value.toLowerCase();
-    const filtered = testMovies.filter(m =>
-        m.title.toLowerCase().includes(q) ||
-        m.genre.toLowerCase().includes(q)
-    );
-    renderMovies(filtered);
+// WAIT UNTIL THE ENTIRE PAGE INCLUDING NAVBAR IS LOADED BEFORE ATTACHING LISTENERS
+// WITHOUT THIS, getElementById RETURNS NULL BECAUSE THE ELEMENT DOESN'T EXIST YET
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('searchInput').addEventListener('input', function () {
+        const q = this.value.toLowerCase();
+        const filtered = testMovies.filter(m =>
+            m.title.toLowerCase().includes(q) ||
+            m.genre.toLowerCase().includes(q)
+        );
+        renderMovies(filtered);
+    });
 });
 
 // ── OPEN MODAL ──
@@ -147,18 +151,43 @@ document.getElementById('videoModal').addEventListener('click', function (e) {
 
 
 
-// CURSOR ORB
+// CURSOR ORB old code before event delegation optimization
+// const orb = document.getElementById('cursorOrb');
+
+// document.addEventListener('mousemove', (e) => {
+//     orb.style.left = e.clientX + 'px';
+//     orb.style.top = e.clientY + 'px';
+// });
+
+// Grow on hover over links and cards
+// document.querySelectorAll('a, button, .movie-card, .genre-pill')
+//     .forEach(el => {
+//         el.addEventListener('mouseenter', () => orb.classList.add('hovered'));
+//         el.addEventListener('mouseleave', () => orb.classList.remove('hovered'));
+//     });
+
+// CURSOR ORB — GET THE ORB ELEMENT
 const orb = document.getElementById('cursorOrb');
 
+// MOVE ORB TO FOLLOW MOUSE POSITION
 document.addEventListener('mousemove', (e) => {
     orb.style.left = e.clientX + 'px';
     orb.style.top = e.clientY + 'px';
 });
 
-// Grow on hover over links and cards
-document.querySelectorAll('a, button, .movie-card, .genre-pill')
-    .forEach(el => {
-        el.addEventListener('mouseenter', () => orb.classList.add('hovered'));
-        el.addEventListener('mouseleave', () => orb.classList.remove('hovered'));
-    });
+// EVENT DELEGATION — ONE LISTENER ON THE WHOLE DOCUMENT
+// CHECKS IF WHAT YOU'RE HOVERING IS AN INTERACTIVE ELEMENT
+// THIS WORKS EVEN FOR ELEMENTS ADDED LATER BY FETCH() OR PHP
+document.addEventListener('mouseover', (e) => {
+    // CLOSEST() CHECKS IF THE HOVERED ELEMENT OR ANY PARENT MATCHES THE SELECTOR
+    if (e.target.closest('a, button, .movie-card, .genre-pill, .nav-btn, .dropdown-item')) {
+        orb.classList.add('hovered');
+    }
+});
 
+// SHRINK ORB BACK WHEN LEAVING INTERACTIVE ELEMENTS
+document.addEventListener('mouseout', (e) => {
+    if (e.target.closest('a, button, .movie-card, .genre-pill, .nav-btn, .dropdown-item')) {
+        orb.classList.remove('hovered');
+    }
+});

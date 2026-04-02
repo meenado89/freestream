@@ -8,11 +8,55 @@ a {
     text-decoration: none;
 }
 
+/* DESIGN SYSTEM — ALL SITE VARIABLES DEFINED HERE
+   CHANGE A VALUE ONCE, UPDATES EVERYWHERE  */
 :root {
-    --sbg: rgb(137, 43, 226);
-    --bl: black;
-    --w: white;
-    --g: gray;
+    /* BRAND COLORS */
+    --primary: #8a2be2;
+    /* BLUEVIOLET — MAIN BRAND COLOR */
+    --primary-dim: rgba(138, 43, 226, 0.15);
+    /* TRANSPARENT VERSION FOR BACKGROUNDS */
+    --primary-glow: rgba(138, 43, 226, 0.4);
+    /* FOR SHADOWS AND GLOWS */
+
+    /* BACKGROUNDS */
+    --bg: #000000;
+    /* PURE BLACK — MAIN BACKGROUND */
+    --bg-card: #1a1a24;
+    /* SLIGHTLY LIGHTER — FOR CARDS */
+    --bg-nav: rgba(0, 0, 0, 0.95);
+    /* NAV BACKGROUND WITH SLIGHT TRANSPARENCY */
+
+    /* TEXT */
+    --text: #ffffff;
+    /* PRIMARY TEXT — WHITE */
+    --text-muted: #888888;
+    /* SECONDARY TEXT — GRAY */
+    --text-dim: rgba(255, 255, 255, 0.7);
+    /* SLIGHTLY DIMMED WHITE FOR HOVER STATES */
+
+    /* BORDERS */
+    --border: rgba(138, 43, 226, 0.3);
+    /* SUBTLE PURPLE BORDER */
+    --border-bright: #8a2be2;
+    /* FULL PURPLE BORDER */
+
+    /* SPACING — CONSISTENT GAPS THROUGHOUT THE SITE */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+
+    /* BORDER RADIUS */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+    /* FONT */
+    --font-main: 'Quicksand', sans-serif;
+
+    /* TRANSITIONS */
+    --transition: all 0.2s ease;
 }
 
 body {
@@ -31,13 +75,14 @@ body {
     font-family: Cambria, Cochin;
     font-weight: 800;
     font-size: 30px;
-    }
+}
 
 .logo span {
     color: aliceblue;
 }
 
-nav {
+/* OLD NAVBAR STYLES */
+/* nav {
     position: fixed;
     background-color: black;
     width: 100%;
@@ -69,10 +114,10 @@ nav {
 
 .nav-links a:hover {
     color: white;
-}
+} */
 
-/* SEARCH BAR */
-#searchInput {
+/* OLDSEARCH BAR */
+/* #searchInput {
     background: rgba(137, 43, 226, 0.204);
     border: inset 1px 2px 0px 1px solid rgb(137, 43, 226);
     outline: none;
@@ -83,7 +128,260 @@ nav {
     border-radius: 6px;
     font-family: 'DM Sans';
 
+} */
+
+/* NEW NAVBAR */
+/* MADE INCLUDES FOR NAVBAR THAT WILL BE EASILY RESUSED  */
+
+.site-nav {
+    /* FLEXBOX ROW WITH SPACE BETWEEN THREE SECTIONS */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* STICKS TO TOP OF SCREEN WHEN SCROLLING */
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    /* SPACING AND BACKGROUND */
+    padding: 0 var(--spacing-lg);
+    height: 64px;
+    background: var(--bg-nav);
+
+    /* PURPLE BOTTOM BORDER — BRAND ACCENT */
+    border-bottom: 2px solid var(--primary);
+
+    /* BLUR EFFECT BEHIND NAV — GLASSMORPHISM */
+    backdrop-filter: blur(12px);
 }
+
+/* LOGO*/
+
+.nav-logo {
+    /* NO UNDERLINE ON THE LINK */
+    text-decoration: none;
+
+    /* BRAND FONT STYLING */
+    font-size: 24px;
+    font-weight: 800;
+    font-family: Cambria, Cochin;
+
+    /* LOGO COLOR — PRIMARY PURPLE */
+    color: var(--primary);
+
+    /* NO SHRINKING WHEN SPACE IS TIGHT */
+    flex-shrink: 0;
+}
+
+.nav-logo span {
+    /* "FREE" PART OF LOGO IS WHITE */
+    color: var(--text);
+}
+
+/* NAV LINKS — CENTER SECTION*/
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    /* NO UNDERLINE */
+    text-decoration: none;
+
+    /* MUTED BY DEFAULT — BRIGHTENS ON HOVER */
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+
+    /* SMOOTH COLOR TRANSITION ON HOVER */
+    transition: var(--transition);
+
+    /* NEEDED FOR DROPDOWN POSITIONING */
+    position: relative;
+}
+
+.nav-link:hover {
+    /* BRIGHTEN ON HOVER */
+    color: var(--text);
+}
+
+.nav-link.active {
+    /* ACTIVE PAGE LINK IS FULL WHITE */
+    color: var(--text);
+}
+
+/* DROPDOWN — LANGUAGE SELECTOR HIDDEN BY DEFAULT, SHOWN ON HOVER*/
+
+.nav-dropdown {
+    /* RELATIVE SO DROPDOWN MENU POSITIONS AGAINST IT */
+    position: relative;
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    /* HIDDEN BY DEFAULT */
+    display: none;
+
+    /* POSITIONS BELOW THE TRIGGER LINK */
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    /* DARK BACKGROUND WITH PURPLE BORDER */
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    /* MINIMUM WIDTH SO IT DOESNT LOOK SQUISHED */
+    min-width: 160px;
+
+    /* SITS ABOVE OTHER CONTENT */
+    z-index: 100;
+
+    /* SMALL TOP MARGIN SO IT DOESNT FEEL ATTACHED */
+    margin-top: 0;
+    top: calc(100% + 0px);
+}
+
+/* SHOW DROPDOWN WHEN PARENT IS HOVERED */
+.nav-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    /* BLOCK SO EACH ITEM TAKES FULL WIDTH */
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    /* HIGHLIGHT ON HOVER */
+    background: var(--primary-dim);
+    color: var(--text);
+}
+
+/* RIGHT SIDE — SEARCH AND LOGIN BUTTON*/
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.nav-search {
+    /* TRANSPARENT BACKGROUND WITH SUBTLE BORDER */
+    background: var(--primary-dim);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    color: var(--text);
+    font-size: 14px;
+    width: 180px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.nav-search:focus {
+    /* BRIGHTEN BORDER WHEN TYPING */
+    border-color: var(--primary);
+}
+
+.nav-search::placeholder {
+    color: var(--text-muted);
+}
+
+.nav-btn {
+    /* FILLED PURPLE BUTTON */
+    background: var(--primary);
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    /* SLIGHTLY TRANSPARENT ON HOVER */
+    background: var(--primary-glow);
+    color: var(--text);
+}
+
+/* HAMBURGER BUTTON — MOBILE ONLY, HIDDEN ON DESKTOP */
+
+.nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* MOBILE MENU — HIDDEN BY DEFAULT
+   SHOWN WHEN HAMBURGER IS CLICKED VIA JAVASCRIPT */
+
+.mobile-menu {
+    /* HIDDEN BY DEFAULT */
+    display: none;
+
+    /* STACKS LINKS VERTICALLY */
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    background: var(--bg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu.open {
+    /* JAVASCRIPT ADDS 'open' CLASS TO SHOW THIS */
+    display: flex;
+}
+
+.mobile-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.mobile-link:hover {
+    color: var(--text);
+}
+
+/* RESPONSIVE — COLLAPSE TO HAMBURGER ON MOBILE*/
+
+@media (max-width: 768px) {
+
+    /* HIDE DESKTOP LINKS ON MOBILE */
+    .nav-links {
+        display: none;
+    }
+
+    /* HIDE SEARCH ON MOBILE — IN MOBILE MENU INSTEAD */
+    .nav-search {
+        display: none;
+    }
+
+    /* SHOW HAMBURGER ON MOBILE */
+    .nav-hamburger {
+        display: block;
+    }
+}
+
 
 
 
@@ -117,7 +415,8 @@ nav {
 }
 
 /* genre-pill */
-.generpills {
+/* REMOVED THEM THEY WERE NOT USEFULL AND CROWDING */
+/* .generpills {
     padding: 12px 40px 32px;
     position: relative;
     justify-items: center;
@@ -141,7 +440,7 @@ nav {
 
 .genre-pill:hover {
     background-color: var(--sbg);
-}
+} */
 
 /* MOVIES SECTION */
 .movies-section {

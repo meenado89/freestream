@@ -27,47 +27,7 @@
         <div class="cursor-orb" id="cursorOrb"></div>
 
         <!-- NAVBAR -->
-        <section>
-            <nav class="d-flex align-items-center justify-content-between px-3 px-md-5 py-2 border-bottom border-secondary"
-                style="background:black; position:sticky; top:0; z-index:100; border-bottom: 2px solid blueviolet !important;">
-
-                <!-- LOGO — always visible -->
-                <div class="logo">STREAM<span>FREE</span></div>
-
-                <!-- NAV LINKS — hidden on mobile, visible md and up -->
-                <div class="d-none d-md-flex gap-4 align-items-center">
-                    <a href="#" class="active text-white text-decoration-none">Home</a>
-                    <a href="#" class="text-secondary text-decoration-none">Movies</a>
-                    <a href="#" class="text-secondary text-decoration-none">TV Shows</a>
-                    <a href="#" class="text-secondary text-decoration-none">Animation</a>
-                    <a href="#" class="text-secondary text-decoration-none">Languages</a>
-                </div>
-
-                <!-- SEARCH — full width on mobile, fixed width on desktop -->
-                <div class="d-flex align-items-center gap-2">
-                    <input type="text" id="searchInput" placeholder="Search movies..."
-                        class="form-control form-control-sm bg-transparent text-white border-secondary"
-                        style="width:160px; outline:none;" />
-
-                    <!-- HAMBURGER — only shows on mobile -->
-                    <button class="navbar-toggler d-md-none border-0 bg-transparent text-white fs-4 p-0" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#mobileMenu">
-                        ☰
-                    </button>
-                </div>
-            </nav>
-
-            <!-- MOBILE MENU — collapses on small screens -->
-            <div class="collapse d-md-none" id="mobileMenu" style="background:black;">
-                <div class="d-flex flex-column gap-3 px-4 py-3">
-                    <a href="#" class="text-white text-decoration-none">Home</a>
-                    <a href="#" class="text-secondary text-decoration-none">Movies</a>
-                    <a href="#" class="text-secondary text-decoration-none">TV Shows</a>
-                    <a href="#" class="text-secondary text-decoration-none">Animation</a>
-                    <a href="#" class="text-secondary text-decoration-none">Languages</a>
-                </div>
-            </div>
-        </section>
+        <?php include 'includes/navbar.php'; ?>
         <!-- NAVBAR END -->
 
         <!-- SAMPLE CAROUSEL ADD MOVIES AND SHOWS THUMBNAIL AND INTRO -->
@@ -107,7 +67,7 @@
         <!-- ADVERT 1 END  -->
 
         <!-- GENER FILTER PILLS -->
-        <section class=" container-fluid generpills">
+        <!-- <section class=" container-fluid generpills">
             <div class="genre-scroll">
                 <div class="genre-pill active" onclick="filterGenre(this,'all')">All</div>
                 <div class="genre-pill" onclick="filterGenre(this,'animation')">Animation</div>
@@ -121,7 +81,7 @@
                 <div class="genre-pill" onclick="filterGenre(this,'foreign')">Foreign Language</div>
                 <div class="genre-pill" onclick="filterGenre(this,'short')">Short Films</div>
             </div>
-        </section>
+        </section> -->
 
 
         <!-- MOVIE GRID -->
