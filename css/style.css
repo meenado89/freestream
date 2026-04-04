@@ -140,13 +140,14 @@ body {
     justify-content: space-between;
 
     /* STICKS TO TOP OF SCREEN WHEN SCROLLING */
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 9999;
+    z-index: 100;
 
     /* SPACING AND BACKGROUND */
     padding: 0 var(--spacing-lg);
     height: 64px;
+    width: 100%;
     background: var(--bg-nav);
 
     /* PURPLE BOTTOM BORDER — BRAND ACCENT */
@@ -580,6 +581,7 @@ body {
 }
 
 .modal-box {
+    z-index: 1000;
     background: #13131a;
     border-radius: 16px;
     width: 90%;
