@@ -21,48 +21,48 @@
 
             <!-- BROWSE -->
             <div class="col-6 col-md-2">
-                <h6 class="text-white fw-bold mb-3">Browse</h6>
+                <h6 class="fw-bold mb-3">Browse</h6>
                 <div class="d-flex flex-column gap-2">
-                    <a href="#" class="text-secondary text-decoration-none footer-link">All Movies</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Documentaries</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Animations</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Classics</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Short Films</a>
+                    <a href="#"class="footer-link">All Movies</a>
+                    <a href="#" class="footer-link">Documentaries</a>
+                    <a href="#" class="footer-link">Animations</a>
+                    <a href="#" class="footer-link">Classics</a>
+                    <a href="#" class="footer-link">Short Films</a>
                 </div>
             </div>
 
             <!-- LANGUAGES -->
             <div class="col-6 col-md-2">
-                <h6 class="text-white fw-bold mb-3">Languages</h6>
+                <h6 class="fw-bold mb-3">Languages</h6>
                 <div class="d-flex flex-column gap-2">
-                    <a href="#" class="text-secondary text-decoration-none footer-link">English</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Hindi / Tamil</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">French</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Spanish</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">All Languages</a>
+                    <a href="#" class="footer-link">English</a>
+                    <a href="#" class="footer-link">Hindi / Tamil</a>
+                    <a href="#" class="footer-link">French</a>
+                    <a href="#" class="footer-link">Spanish</a>
+                    <a href="#" class="footer-link">All Languages</a>
                 </div>
             </div>
 
             <!-- INFO -->
             <div class="col-6 col-md-2">
-                <h6 class="text-white fw-bold mb-3">Info</h6>
+                <h6 class="fw-bold mb-3">Info</h6>
                 <div class="d-flex flex-column gap-2">
-                    <a href="#" class="text-secondary text-decoration-none footer-link">About</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Advertise</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">DMCA</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Privacy Policy</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Advertise</a>
+                    <a href="#" class="footer-link">DMCA</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
                 </div>
             </div>
 
             <!-- MY LINKS -->
             <div class="col-6 col-md-2">
-                <h6 class="text-white fw-bold mb-3">Contact</h6>
+                <h6 class="fw-bold mb-3">Contact</h6>
                 <div class="d-flex flex-column gap-2">
-                    <a href="https://github.com/meenado89" target="_blank" class="text-secondary text-decoration-none footer-link">GitHub</a>
-                    <a href="https://www.linkedin.com/in/meenakshidogra89/" target="_blank" class="text-secondary text-decoration-none footer-link">LinkedIn</a>
-                    <a href="mailto:meenakshidogra89@gmail.com" class="text-secondary text-decoration-none footer-link">Email</a>
-                    <a href="+6589328526" class="text-secondary text-decoration-none footer-link">Contact</a>
+                    <a href="https://github.com/meenado89" target="_blank" class="footer-link">GitHub</a>
+                    <a href="https://www.linkedin.com/in/meenakshidogra89/" target="_blank" class="footer-link">LinkedIn</a>
+                    <a href="mailto:meenakshidogra89@gmail.com" class="footer-link">Email</a>
+                    <a href="tel:+6589328526" class="footer-link">Contact</a>
                     
                 </div>
             </div>

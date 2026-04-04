@@ -60,7 +60,7 @@ a {
 }
 
 body {
-    background: rgb(255, 255, 255);
+    background: var(--bg);
     color: white;
     font-family: 'DM Sans', sans-serif;
     min-height: 100vh;
@@ -806,7 +806,6 @@ body {
     background-color: blueviolet;
 }
 
-
 /* FOOTER */
 footer {
     background-color: var(--bl);
@@ -814,30 +813,35 @@ footer {
     gap: 10rem;
 }
 
-.footer-col a,
-p {
-    display: flex;
+footer p {
     font-size: 14px;
-    justify-content: space-between;
     line-height: 2.05;
     color: var(--w);
 }
 
-.footer-col a:hover {
-    color: var(--sbg);
+.footer-link {
+    display: block;
+    font-size: 14px;
+    line-height: 2.05;
+    color: var(--w); 
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--primary);
+    opacity: 0.8;
 }
 
 .footer-bottom {
     background-color: var(--bl);
     color: var(--w);
     font-size: 12px;
-
 }
-
 
 /* TO HIDE DEFAULT CURSORE */
 * {
-    cursor: none !important;
+    cursor: none;
 }
 
 /* ORB CURSOR */
