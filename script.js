@@ -17,50 +17,34 @@ function loadMovies(genre = 'all') {
 loadMovies();
 let adInterval;
 
-// ── RENDER CARDS ──
-function renderMovies(movies) {
-    const grid = document.getElementById('movieGrid');
-
-    if (!movies.length) {
-        grid.innerHTML = '<p style="color:gray;padding:20px">No movies found.</p>';
-        return;
-    }
-
-    grid.innerHTML = movies.map(m => `
+grid.innerHTML = movies.map(m => `
   <div class="movie-card" data-genre="${m.genre}" onclick="openModal(${m.id})">
 
-    <!-- Thumbnail -->
     <div class="movie-thumb">
-      <!-- Poster Image -->
-      <img 
-        src="https://archive.org/services/img/${m.embed_url.split('/embed/')[1]}"
-        style="width:100%; height:100%; object-fit:cover;"
-      >
 
-      <!-- FREE badge -->
+      ${m.poster_url
+        ? `<img src="${m.poster_url}" alt="${m.title}" style="width:100%;height:100%;object-fit:cover;">`
+        : `<span style="font-size:48px">🎬</span>`
+      }
+
       <span class="free-badge">FREE</span>
 
-      <!-- Play button overlay -->
       <div class="play-overlay">
         <div class="play-btn">▶</div>
       </div>
     </div>
 
-    <!-- Info -->
     <div class="movie-info">
       <div class="movie-title">${m.title}</div>
-
       <div class="movie-meta-row">
         <span>${m.year}</span>
         <span>★ ${m.rating}</span>
       </div>
-
       <div class="movie-genre-tag">${m.genre}</div>
     </div>
 
   </div>
 `).join('');
-}
 
 // ── FILTER BY GENRE ──
 function filterGenre(el, genre) {
