@@ -81,54 +81,6 @@ body {
     color: aliceblue;
 }
 
-/* OLD NAVBAR STYLES */
-/* nav {
-    position: fixed;
-    background-color: black;
-    width: 100%;
-    height: 4rem;
-    z-index: 9999;
-    backdrop-filter: blur(14px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: solid blueviolet 2px;
-    padding: 0 3rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-    align-items: center;
-}
-
-.active {
-    color: white;
-}
-
-.nav-links a {
-    color: rgba(225, 223, 223, 0.768);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.nav-links a:hover {
-    color: white;
-} */
-
-/* OLDSEARCH BAR */
-/* #searchInput {
-    background: rgba(137, 43, 226, 0.204);
-    border: inset 1px 2px 0px 1px solid rgb(137, 43, 226);
-    outline: none;
-    color: gray;
-    font-size: 14px;
-    width: 200px;
-    padding: 6px;
-    border-radius: 6px;
-    font-family: 'DM Sans';
-
-} */
 
 /* NEW NAVBAR */
 /* MADE INCLUDES FOR NAVBAR THAT WILL BE EASILY RESUSED  */
@@ -151,7 +103,7 @@ body {
     background: var(--bg-nav);
 
     /* PURPLE BOTTOM BORDER — BRAND ACCENT */
-    border-bottom: 2px solid var(--primary);
+    border-bottom: 1px solid var(--primary-glow);
 
     /* BLUR EFFECT BEHIND NAV — GLASSMORPHISM */
     backdrop-filter: blur(12px);

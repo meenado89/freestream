@@ -30,9 +30,8 @@
         <?php include 'includes/navbar.php'; ?>
         <!-- NAVBAR END -->
 
-        <!-- SAMPLE CAROUSEL ADD MOVIES AND SHOWS THUMBNAIL AND INTRO -->
-        <!-- HERO CAROUSEL -->
 
+        <!-- HERO CAROUSEL -->
         <?php require_once 'includes/hero.php'; ?>
         <!-- HERO SECTION END -->
 
@@ -49,29 +48,10 @@
         </section>
         <!-- ADVERT 1 END  -->
 
-        <!-- GENER FILTER PILLS -->
-        <!-- <section class=" container-fluid generpills">
-            <div class="genre-scroll">
-                <div class="genre-pill active" onclick="filterGenre(this,'all')">All</div>
-                <div class="genre-pill" onclick="filterGenre(this,'animation')">Animation</div>
-                <div class="genre-pill" onclick="filterGenre(this,'documentary')">Documentary</div>
-                <div class="genre-pill" onclick="filterGenre(this,'drama')">Drama</div>
-                <div class="genre-pill" onclick="filterGenre(this,'comedy')">Comedy</div>
-                <div class="genre-pill" onclick="filterGenre(this,'action')">Action</div>
-                <div class="genre-pill" onclick="filterGenre(this,'horror')">Horror</div>
-                <div class="genre-pill" onclick="filterGenre(this,'scifi')">Sci-Fi</div>
-                <div class="genre-pill" onclick="filterGenre(this,'classic')">Classics</div>
-                <div class="genre-pill" onclick="filterGenre(this,'foreign')">Foreign Language</div>
-                <div class="genre-pill" onclick="filterGenre(this,'short')">Short Films</div>
-            </div>
-        </section> -->
-
-
         <!-- MOVIE GRID -->
-
         <?php require_once 'includes/cards.php'; ?>
         <!-- MOVIES GRID SECTION -->
-        
+
 
         <!-- MID PAGE AD -->
         <section>
@@ -84,95 +64,12 @@
         </section>
 
         <!-- VIDEO MODAL -->
-        <div id="videoModal" class="modal-overlay">
-            <div class="modal-box">
-                <button class="modal-close" onclick="closeModal()">✕ Close</button>
-                <div class="modal-player">
-                    <!-- AD OVERLAY before movie plays -->
-                    <div class="ad-overlay" id="adOverlay">
-                        <p>Ad playing... <span id="adTimer">5</span>s</p>
-                        <button id="skipBtn" onclick="skipAd()" disabled>Wait 5s...</button>
-                    </div>
-                    <iframe id="movieFrame" src="" allowfullscreen></iframe>
-                </div>
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <div id="modalMeta" class="modal-meta"></div>
-                    <p id="modalDesc"></p>
-                </div>
-            </div>
-        </div>
+        <?php include 'includes/modals.php'; ?>
 
         <!-- MOVIE GRID END -->
 
         <!-- FOOTER -->
-        <footer style="background:black;" class="pt-5 pb-3 mt-5">
-
-            <!-- MAIN FOOTER GRID -->
-            <div class="container-fluid px-4 px-md-5">
-                <div class="row g-4">
-
-                    <!-- BRAND -->
-                    <div class="col-12 col-md-4">
-                        <div class="logo mb-2">STREAM<span>FREE</span></div>
-                        <p class="text-secondary" style="font-size:14px; line-height:1.8;">
-                            Free, legal movies from the public domain and Creative Commons.
-                            No subscription. No sign-up. Just watch.
-                        </p>
-                    </div>
-
-                    <!-- BROWSE -->
-                    <div class="col-6 col-md-2">
-                        <h6 class="text-white fw-bold mb-3">Browse</h6>
-                        <div class="d-flex flex-column gap-2">
-                            <a href="#" class="text-secondary text-decoration-none footer-link">All Movies</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Documentaries</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Animations</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Classics</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Short Films</a>
-                        </div>
-                    </div>
-
-                    <!-- LANGUAGES -->
-                    <div class="col-6 col-md-2">
-                        <h6 class="text-white fw-bold mb-3">Languages</h6>
-                        <div class="d-flex flex-column gap-2">
-                            <a href="#" class="text-secondary text-decoration-none footer-link">English</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Hindi / Tamil</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">French</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Spanish</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">All Languages</a>
-                        </div>
-                    </div>
-
-                    <!-- INFO -->
-                    <div class="col-6 col-md-2">
-                        <h6 class="text-white fw-bold mb-3">Info</h6>
-                        <div class="d-flex flex-column gap-2">
-                            <a href="#" class="text-secondary text-decoration-none footer-link">About</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Advertise</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">DMCA</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Privacy Policy</a>
-                            <a href="#" class="text-secondary text-decoration-none footer-link">Terms of Service</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- BOTTOM BAR -->
-            <div class="border-top border-secondary mt-4 pt-3 px-4 px-md-5 
-              d-flex flex-column flex-md-row 
-              justify-content-between align-items-center gap-2">
-                <span class="text-secondary" style="font-size:12px;">
-                    © 2025 StreamFree — All content is public domain or CC licensed
-                </span>
-                <span class="text-secondary" style="font-size:12px;">
-                    Built with HTML · CSS · JavaScript
-                </span>
-            </div>
-
-        </footer>
+        <?php include 'includes/footer.php'; ?>
 
     </main>
     <!-- MAIN BODY END -->
