@@ -33,24 +33,7 @@
         <!-- SAMPLE CAROUSEL ADD MOVIES AND SHOWS THUMBNAIL AND INTRO -->
         <!-- HERO CAROUSEL -->
 
-        <section class="mainhero-container">
-            <div class="container-fluid">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"
-                    data-bs-interval="2500">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <h1 class="text-dark">movies tumbnails will go here</h1>
-                </div>
-
-            </div>
-
-        </section>
+        <?php require_once 'includes/hero.php'; ?>
         <!-- HERO SECTION END -->
 
         <!-- GOOGLE ADVERTISMENT -->
@@ -86,16 +69,9 @@
 
         <!-- MOVIE GRID -->
 
+        <?php require_once 'includes/cards.php'; ?>
         <!-- MOVIES GRID SECTION -->
-        <section class="movies-section">
-            <div class="section-header">
-                <h2 class="section-title">Free to Watch Now</h2>
-
-            </div>
-
-            <!-- Cards render here from JavaScript -->
-            <div id="movieGrid" class="movie-grid"></div>
-        </section>
+        
 
         <!-- MID PAGE AD -->
         <section>

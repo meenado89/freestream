@@ -17,7 +17,16 @@ function loadMovies(genre = 'all') {
 loadMovies();
 let adInterval;
 
-grid.innerHTML = movies.map(m => `
+// ── RENDER CARDS ──
+function renderMovies(movies) {
+    const grid = document.getElementById('movieGrid');
+
+    if (!movies.length) {
+        grid.innerHTML = '<p style="color:gray;padding:20px">No movies found.</p>';
+        return;
+    }
+
+   grid.innerHTML = movies.map(m => `
   <div class="movie-card" data-genre="${m.genre}" onclick="openModal(${m.id})">
 
     <div class="movie-thumb">
@@ -27,11 +36,7 @@ grid.innerHTML = movies.map(m => `
         : `<span style="font-size:48px">🎬</span>`
       }
 
-      <span class="free-badge">FREE</span>
-
-      <div class="play-overlay">
-        <div class="play-btn">▶</div>
-      </div>
+      
     </div>
 
     <div class="movie-info">
@@ -45,6 +50,7 @@ grid.innerHTML = movies.map(m => `
 
   </div>
 `).join('');
+}
 
 // ── FILTER BY GENRE ──
 function filterGenre(el, genre) {
@@ -69,6 +75,54 @@ document.addEventListener('DOMContentLoaded', function () {
         renderMovies(filtered);
     });
 });
+
+// HERO SLIDER
+// ── CAROUSEL ──
+let currentSlide = 0;
+let autoTimer;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots   = document.querySelectorAll('.dot');
+
+function goToSlide(index) {
+  // Remove active from current
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+
+  // Set new index — wrap around at ends
+  currentSlide = (index + slides.length) % slides.length;
+
+  // Add active to new slide
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+
+  // Reset auto timer so it doesn't skip too fast after manual click
+  resetAutoPlay();
+}
+
+function nextSlide() { goToSlide(currentSlide + 1); }
+function prevSlide() { goToSlide(currentSlide - 1); }
+
+function startAutoPlay() {
+  autoTimer = setInterval(nextSlide, 3000); 
+}
+
+function resetAutoPlay() {
+  clearInterval(autoTimer);
+  startAutoPlay();
+}
+
+// Hook up arrow buttons
+document.getElementById('nextBtn').addEventListener('click', nextSlide);
+document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+// Pause on hover — resume on leave
+const carousel = document.querySelector('.hero-carousel');
+carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
+carousel.addEventListener('mouseleave', startAutoPlay);
+
+// Start it
+startAutoPlay();
+
 
 // ── OPEN MODAL ──
 function openModal(id) {
